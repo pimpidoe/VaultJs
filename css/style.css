@@ -1,0 +1,55 @@
+body{
+  background-image: url("../img/vault.jpg");
+  background-size: cover;
+  background-repeat:  no-repeat;
+}
+
+#code-container{
+  border: 5px #FF0000;
+  border-radius: 25px;
+  border-style: solid;
+  width: 22%;
+  float: left;
+  background-image: url("../img/background.jpg");
+  color: red;
+  text-align: center;
+}
+
+.button{
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: 100px;
+  height: 100px;
+  font-size: 30px;
+  background-color: #342f2f;
+  font-family: fantasy;
+}
+
+#rightCode{
+  border: 5px green;
+  border-radius: 20px;
+  border-style: solid;
+  margin-top: 70px;
+  width: 47%;
+  height: 50px;
+  float: left;
+}
+
+#wrongCode{
+  border: 5px red;
+  border-radius: 20px;
+  border-style: solid;
+  margin-top: 70px;
+  width: 47%;
+  height: 50px;
+  float: right;
+}
+
+#code{
+  padding-top: 50px;
+  font-size: 40px;
+  font-family: fantasy;
+  font-weight: 100;
+}
