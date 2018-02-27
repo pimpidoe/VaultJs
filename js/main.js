@@ -1,13 +1,11 @@
-// var codeContainer = document.getElementById('name-container')
-//
-// function getName(button){
-// console.log(button.value);
-//
-// codeContainer.innerHTML += button.value
-// }
 var code = document.getElementById('code')
 var ButtonDisabler = document.getElementsByClassName('button')
-var CorrectCode = "213"
+var CorrectCode = "312"
+var CorrectTimes =  0;
+var IncorrectTimes = 0;
+var timer = 0;
+var greenBlock = getElementById('rightCode');
+var redBlock = getElementById('wrongCode');
 
 function getNumber(button)
 {
@@ -17,7 +15,6 @@ function getNumber(button)
 
   for (DisableCounter = 0; DisableCounter < ButtonDisabler.length; DisableCounter++)
   {
-  //  console.log(codeLengthChecker);
     if (CodeLengthChecker === 3) {
       ButtonDisabler[DisableCounter].disabled = true;
     }
@@ -27,16 +24,25 @@ function getNumber(button)
   }
   if (code.innerHTML === CorrectCode)
       {
-        outcome.classList.add("fade-in");
         outcome.innerHTML = "THE CODE IS CORRECT"
         CorrectTimes++;
-        greenLight.innerHTML = "CORRECT: " + CorrectTimes.toString() + " TIMES"
+        rightCode.innerHTML =  "CORRECT: " + CorrectTimes.toString() + " TIMES"
+      }
+      else {
+        reset();
       }
   else if ((code.innerHTML != CorrectCode) && (CodeLengthChecker === 3) )
       {
-        outcome.classList.add("fade-in");
         outcome.innerHTML = "THE CODE IS INCORRECT"
         IncorrectTimes++;
-        redLight.innerHTML = "INCORRECT: " + IncorrectTimes.toString() + " TIMES"
+        wrongCode.innerHTML =  "CORRECT: " + IncorrectTimes.toString() + " TIMES"
       }
+      else {
+        reset();
+      }
+}
+
+function reset() {
+  DisableCounter = 0;
+  ButtonDisabler[DisableCounter].disabled = false;
 }

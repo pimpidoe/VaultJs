@@ -29,6 +29,7 @@ body{
 
 #rightCode{
   border: 5px green;
+  color: white;
   border-radius: 20px;
   border-style: solid;
   margin-top: 70px;
@@ -39,6 +40,7 @@ body{
 
 #wrongCode{
   border: 5px red;
+  color: white;
   border-radius: 20px;
   border-style: solid;
   margin-top: 70px;
