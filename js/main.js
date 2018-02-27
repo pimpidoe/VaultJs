@@ -4,8 +4,9 @@ var CorrectCode = "312"
 var CorrectTimes =  0;
 var IncorrectTimes = 0;
 var timer = 0;
-var greenBlock = getElementById('rightCode');
-var redBlock = getElementById('wrongCode');
+var greenBlock = document.getElementById('rightCode');
+var redBlock = document.getElementById('wrongCode');
+//var outcome = document.getElementById();
 
 function getNumber(button)
 {
@@ -17,6 +18,7 @@ function getNumber(button)
   {
     if (CodeLengthChecker === 3) {
       ButtonDisabler[DisableCounter].disabled = true;
+      setTimeout(resetButton,5000);
     }
     else {
       ButtonDisabler[DisableCounter].disabled = false;
@@ -24,25 +26,33 @@ function getNumber(button)
   }
   if (code.innerHTML === CorrectCode)
       {
-        outcome.innerHTML = "THE CODE IS CORRECT"
+      //  outcome.innerHTML = "THE CODE IS CORRECT"
+      greenBlock.classList.add("blinkG");
         CorrectTimes++;
-        rightCode.innerHTML =  "CORRECT: " + CorrectTimes.toString() + " TIMES"
-      }
-      else {
-        reset();
+        greenBlock.innerHTML =  "CORRECT: " + CorrectTimes.toString() + " TIMES"
+        setTimeout(reset,5000);
       }
   else if ((code.innerHTML != CorrectCode) && (CodeLengthChecker === 3) )
       {
-        outcome.innerHTML = "THE CODE IS INCORRECT"
+      //  outcome.innerHTML = "THE CODE IS INCORRECT"
+      redBlock.classList.add("blinkR");
         IncorrectTimes++;
-        wrongCode.innerHTML =  "CORRECT: " + IncorrectTimes.toString() + " TIMES"
-      }
-      else {
-        reset();
+        redBlock.innerHTML =  "CORRECT: " + IncorrectTimes.toString() + " TIMES"
+        setTimeout(reset,5000);
       }
 }
 
 function reset() {
   DisableCounter = 0;
-  ButtonDisabler[DisableCounter].disabled = false;
+  greenBlock.classList.remove("blinkG");
+  redBlock.classList.remove("blinkR");
+  code.innerHTML = "";
 }
+
+function resetButton(){
+DisableCounter = 0;
+    for(counterEnable=0; counterEnable < ButtonDisabler.length; counterEnable++) {
+
+        ButtonDisabler[counterEnable].disabled = false;
+    }
+  }
