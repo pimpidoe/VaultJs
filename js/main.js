@@ -37,7 +37,7 @@ function getNumber(button)
       //  outcome.innerHTML = "THE CODE IS INCORRECT"
       redBlock.classList.add("blinkR");
         IncorrectTimes++;
-        redBlock.innerHTML =  "CORRECT: " + IncorrectTimes.toString() + " TIMES"
+        redBlock.innerHTML =  "INCORRECT: " + IncorrectTimes.toString() + " TIMES"
         setTimeout(reset,5000);
       }
 }
