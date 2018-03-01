@@ -6,7 +6,7 @@ var IncorrectTimes = 0;
 var timer = 0;
 var greenBlock = document.getElementById('rightCode');
 var redBlock = document.getElementById('wrongCode');
-//var outcome = document.getElementById();
+var outcome = document.getElementById('outcome')
 
 function getNumber(button)
 {
@@ -26,16 +26,21 @@ function getNumber(button)
   }
   if (code.innerHTML === CorrectCode)
       {
-      //  outcome.innerHTML = "THE CODE IS CORRECT"
-      greenBlock.classList.add("blinkG");
+        outcome.innerHTML = "THE CODE IS CORRECT"
+        outcome.style.color = "green";
+        outcome.classList.add("animated");
+        outcome.classList.add("zoomIn");
+        greenBlock.classList.add("blinkG");
         CorrectTimes++;
         greenBlock.innerHTML =  "CORRECT: " + CorrectTimes.toString() + " TIMES"
         setTimeout(reset,5000);
       }
   else if ((code.innerHTML != CorrectCode) && (CodeLengthChecker === 3) )
       {
-      //  outcome.innerHTML = "THE CODE IS INCORRECT"
-      redBlock.classList.add("blinkR");
+        outcome.innerHTML = "THE CODE IS INCORRECT"
+        redBlock.classList.add("blinkR");
+        outcome.classList.add("animated");
+        outcome.classList.add("zoomIn");
         IncorrectTimes++;
         redBlock.innerHTML =  "INCORRECT: " + IncorrectTimes.toString() + " TIMES"
         setTimeout(reset,5000);
@@ -47,6 +52,10 @@ function reset() {
   greenBlock.classList.remove("blinkG");
   redBlock.classList.remove("blinkR");
   code.innerHTML = "";
+  outcome.innerHTML = "";
+  outcome.style.color = "";
+  outcome.classList.remove("zoomIn")
+  outcome.classList.remove("animated");
 }
 
 function resetButton(){
