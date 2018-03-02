@@ -7,6 +7,11 @@ var timer = 0;
 var greenBlock = document.getElementById('rightCode');
 var redBlock = document.getElementById('wrongCode');
 var outcome = document.getElementById('outcome')
+var audioLose = new Audio('snd/lose.mp3');
+var audioWin = new Audio('snd/win.mp3');
+
+
+
 
 function getNumber(button)
 {
@@ -31,6 +36,7 @@ function getNumber(button)
         outcome.classList.add("animated");
         outcome.classList.add("zoomIn");
         greenBlock.classList.add("blinkG");
+        audioWin.play();
         CorrectTimes++;
         greenBlock.innerHTML =  "CORRECT: " + CorrectTimes.toString() + " TIMES"
         setTimeout(reset,5000);
@@ -41,6 +47,7 @@ function getNumber(button)
         redBlock.classList.add("blinkR");
         outcome.classList.add("animated");
         outcome.classList.add("zoomIn");
+        audioLose.play();
         IncorrectTimes++;
         redBlock.innerHTML =  "INCORRECT: " + IncorrectTimes.toString() + " TIMES"
         setTimeout(reset,5000);
@@ -56,6 +63,8 @@ function reset() {
   outcome.style.color = "";
   outcome.classList.remove("zoomIn")
   outcome.classList.remove("animated");
+  audioWin.stop();
+  audioLose.stop();
 }
 
 function resetButton(){
